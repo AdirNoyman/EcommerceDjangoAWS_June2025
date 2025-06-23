@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("store.urls")),  # Include the store app's URLs
+    path("cart/", include("cart.urls")),  # Include the cart app's URLs
 ]
 
 # Create a unique URL path for our images (that the user uploads)
