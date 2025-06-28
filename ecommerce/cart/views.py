@@ -14,7 +14,8 @@ def cart_add(request):
         product_quantity = int(request.POST.get('product_quantity'))
         product = get_object_or_404(Product, id=product_id)
         cart.add(product=product, product_qty=product_quantity)
-        return JsonResponse({"Product name": product.title, "Product quantity": product_quantity}, status=200)
+        cart_quantity = cart.__len__()
+        return JsonResponse({"qty": cart_quantity})
 
 def cart_update(request, product_id):
     # Logic to update product quantity in cart
